@@ -4,8 +4,7 @@ provider:
   name: aws
   runtime: nodejs10.x
   stage: dev
-  deploymentBucket:
-    name: stest-serverless-api-tong
+
 functions:
   getMsg:
     handler: handler.api
