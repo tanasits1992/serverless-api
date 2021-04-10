@@ -1,0 +1,12 @@
+service: serverless-nodejs-api
+
+provider:
+  name: aws
+  runtime: nodejs10.x
+  stage: dev
+
+functions:
+  getMsg:
+    handler: handler.api
+    events:
+      - http: GET /
