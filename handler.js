@@ -5,7 +5,7 @@ module.exports.api = async (event) => {
     statusCode: 200,
     body: JSON.stringify(
       {
-        message: `Go Serverless v1.0! Your function executed successfully: ${test_env}`,
+        message: `Go Serverless v1.0! Your function executed successfully: ${process.env.test_env}`,
         input: event,
       },
       null,
