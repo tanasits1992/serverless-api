@@ -4,6 +4,10 @@ provider:
   name: aws
   runtime: nodejs10.x
   stage: dev
+  
+custom:
+  stage: ${opt:stage, 'dev'}
+  configuration: ${file(configurations/${self:custom.stage}.yml)}
 
 functions:
   getMsg:
@@ -11,4 +15,4 @@ functions:
     events:
       - http: GET /
     environment:
-      test_env: "${env:test_env}"
+      test_env: ${self:custom.configuration.test_env}
