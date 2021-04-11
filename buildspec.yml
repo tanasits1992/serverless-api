@@ -9,6 +9,7 @@ phases:
       - sed -i "s/@STAGE/${AWS_REGION}/" config.yml
       - sed -i "s/@AWS_REGION/${stage}/" config.yml
       - cat config.yml
+      - pwd
       - npm install serverless -g --unsafe
   build:
     commands:
