@@ -2,13 +2,14 @@ service: serverless-nodejs-api
 
 custom:
   stage: ${opt:stage, 'dev'}
-  configuration: ${file(configurations/${self:custom.stage}.yml)}
+  configuration: ${file(config.yml)}
   
 provider:
   name: aws
   runtime: nodejs10.x
   stage: ${opt:stage, 'dev'}
   region: ${self:custom.configuration.region}
+  stackName: ${self:provider.stage}-serverless-nodejs-api
 
 functions:
   getMsg:
