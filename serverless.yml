@@ -10,3 +10,5 @@ functions:
     handler: handler.api
     events:
       - http: GET /
+    environment:
+      - test_env: "${env:test_env}"
