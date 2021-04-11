@@ -1,0 +1,19 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      nodejs: 10
+    commands:
+      - sed -i "s/@test_env/${test_env}/" config.yml
+      - sed -i "s/@STAGE/${AWS_REGION}/" config.yml
+      - sed -i "s/@AWS_REGION/${stage}/" config.yml
+      - cat config.yml
+      - npm install serverless -g --unsafe
+  build:
+    commands:
+      - sls deploy -s ${stage} -r ${AWS_REGION}
+artifacts:
+  files:
+    - '**/*'
+  base-directory: .serverless
