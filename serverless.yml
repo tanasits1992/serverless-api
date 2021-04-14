@@ -8,7 +8,8 @@ provider:
   name: aws
   runtime: nodejs10.x
   stage: ${opt:stage, 'dev'}
-  region: ${self:custom.configuration.region}
+  # region: ${self:custom.configuration.region}
+  region: ${env:AWS_REGION}
   stackName: ${self:provider.stage}-serverless-nodejs-api
 
 functions:
