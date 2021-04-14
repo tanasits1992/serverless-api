@@ -5,11 +5,12 @@ phases:
     runtime-versions:
       nodejs: 10
     commands:
-      - sed -i "s/@test_env/${test_env}/" config.yml
-      - sed -i "s/@STAGE/${AWS_REGION}/" config.yml
-      - sed -i "s/@AWS_REGION/${stage}/" config.yml
-      - cat config.yml
-      - pwd
+      # - sed -i "s/@test_env/${test_env}/" config.yml
+      # - sed -i "s/@STAGE/${AWS_REGION}/" config.yml
+      # - sed -i "s/@AWS_REGION/${stage}/" config.yml
+      # - cat config.yml
+      # - pwd
+      - printenv
       - npm install serverless -g --unsafe
   build:
     commands:
