@@ -2,7 +2,7 @@ service: serverless-nodejs-api
 
 custom:
   stage: ${opt:stage, 'dev'}
-  configuration: ${file(config.yml)}
+  # configuration: ${file(config.yml)}
   
 provider:
   name: aws
@@ -17,4 +17,5 @@ functions:
     events:
       - http: GET /
     environment:
-      test_env: ${self:custom.configuration.test_env}
+      # test_env: ${self:custom.configuration.test_env}
+      test_env: ${env:test_env}
